@@ -49,7 +49,7 @@ alias gcl="git clone"
 
 # commit
 alias gc="git commit -am"
-alias gcm="git commit --amend --message"
+alias gcm="git commit --amend --no-edit"
 
 # diff
 alias gdt="git difftool"
@@ -91,8 +91,13 @@ alias gbi="git browse -- issues"
 alias gpr="git pull-request"
 
 # better ls
-alias ls="echo; colorls -A --group-directories-first"
-
+# alias ls="echo; colorls -A --group-directories-first"
+alias ld="eza -lD"
+alias lf="eza -lF --color=always | grep -v /"
+alias lh="eza -dl .* --group-directories-first"
+alias ll="eza -al --group-directories-first"
+alias ls="eza --icons --color=always"
+alias lt="eza -al --sort=modified"
 ###
 # coreutils
 ###
@@ -114,16 +119,16 @@ alias paste="gpaste"
 alias join="gjoin"
 
 # basic ops
-alias cp="gcp -v"
-alias mv="gmv -v"
-alias rm="grm -v"
+alias cp="gcp"
+alias mv="gmv"
+alias rm="grm"
 alias shred="gshred"
 
 # special filetypes
 alias link="glink"
 alias unlink="gunlink"
-alias mkdir="gmkdir -v"
-alias rmdir="grmdir -v"
+alias mkdir="gmkdir"
+alias rmdir="grmdir"
 alias readlink="greadlink"
 
 # changing file attributes
@@ -243,18 +248,19 @@ alias get="curl -O -L"
 alias vi="vim"
 alias reload="source ~/.zshrc"
 
-# use ccat
-alias cat="ccat"
+# use bat
+alias cat="bat"
 
 # commonly used dirs
+alias ..="cd .."
 alias dev="cd ~/dev"
 alias work="cd ~/dev/work"
 alias desk="cd ~/desktop"
 alias docs="cd ~/documents"
 alias dl="cd ~/downloads"
 alias home="cd ~"
-alias dots="cd ~/dotfiles"
-alias dotfiles="cd ~/dotfiles"
+alias dots="cd ~/.dotfiles"
+alias dotfiles="cd ~/.dotfiles"
 
 # python
 alias pip="pip3"
@@ -327,11 +333,11 @@ create-repo() {
 }
 
 # make new dir and cd into it
-take() {
+mkcd() {
 	mkdir -p $1
 	cd $1
 }
-alias tk="take"
+alias mk="mkcd"
 
 # change dir
 up() {

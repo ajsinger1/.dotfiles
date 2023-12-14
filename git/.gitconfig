@@ -27,9 +27,11 @@
 [pager]
   branch = false
 [user]
-	name = gretzky
-	email = sfed617@gmail.com
+	name = Ari Singer
+	email = ajsinger1@gmail.com
 [pull]
 	rebase = false
 [init]
-	defaultBranch = main
+    defaultBranch = main
+[help]
+    autocorrect = 20

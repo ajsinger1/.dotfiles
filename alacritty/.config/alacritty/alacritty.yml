@@ -103,11 +103,6 @@ font:
     # screens and make reading text a little easier.
     scale_with_dpi: true
 
-    # OS X only: use thin stroke font rendering. Thin strokes are suitable
-    # for retina displays, but for non-retina you probably want this set to
-    # false.
-    use_thin_strokes: true
-
 # Should display the render timer
 #render_timer: false
 
@@ -330,12 +325,12 @@ key_bindings:
     - { key: Delete, chars: "\x1b[3~" }
     - { key: Left, mods: Shift, chars: "\x1b[1;2D" }
     - { key: Left, mods: Control, chars: "\x1b[1;5D" }
-    - { key: Left, mods: Alt, chars: "\x1b[1;3D" }
+    - { key: Left, mods: Alt, chars: "\x1BB" }
     - { key: Left, chars: "\x1b[D", mode: ~AppCursor }
     - { key: Left, chars: "\x1bOD", mode: AppCursor }
     - { key: Right, mods: Shift, chars: "\x1b[1;2C" }
     - { key: Right, mods: Control, chars: "\x1b[1;5C" }
-    - { key: Right, mods: Alt, chars: "\x1b[1;3C" }
+    - { key: Right, mods: Alt, chars: "\x1BF" }
     - { key: Right, chars: "\x1b[C", mode: ~AppCursor }
     - { key: Right, chars: "\x1bOC", mode: AppCursor }
     - { key: Up, mods: Shift, chars: "\x1b[1;2A" }

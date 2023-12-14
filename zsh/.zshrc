@@ -11,7 +11,6 @@ SAVEHIST=10000
 source ~/antigen.zsh
 
 antigen bundles <<EOBUNDLES
-    tmux
     command-not-found
     colored-man-pages
 
@@ -19,18 +18,15 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-completions
     djui/alias-tips
     zsh-users/zsh-syntax-highlighting
-    gretzky/auto-color-ls
+    mfaerevaag/wd
 EOBUNDLES
 antigen apply
 
 # set starship prompt
-eval "$(starship init zsh)"
+source <(/opt/homebrew/bin/starship init zsh --print-full-init)
 
 # load the rest of the configs
-source $HOME/dotfiles/zsh/.exports
-source $HOME/dotfiles/zsh/.aliases
+source $HOME/.dotfiles/zsh/.exports
+source $HOME/.dotfiles/zsh/.aliases
 
-# start tmux on open
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
 

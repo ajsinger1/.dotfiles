@@ -1,15 +1,14 @@
 # dotfiles
 
-Dotfiles for my M1 Macbook Pro 18,1 running macOS Ventura 13.0.
+Dotfiles for my Macbook Pro 18,1.
 
-![zsh with starship prompt and colorls](https://user-images.githubusercontent.com/15176096/71632895-ff0d0980-2bde-11ea-966f-65e5d564361f.png)
-![vim and tmux](https://user-images.githubusercontent.com/15176096/71633424-2f09dc00-2be2-11ea-9c15-a4f492b7ea68.png)
+![zsh with starship prompt and [eza](https://eza.rocks)](<img width="1083" alt="Screenshot 2023-12-21 at 4 57 21 AM" src="https://github.com/ajsinger1/dotfiles-new/assets/26032169/15e09ec7-b78d-4bf6-853d-f5954c8768bd">)
 
--   Terminal: [Alacritty](https://github.com/jwilm/alacritty) using zsh w/ [starship prompt](https://starship.rs/) and [color-ls](https://github.com/athityakumar/colorls)
--   Window management: [yabai](https://github.com/koekeishiya/yabai)
--   Hotkeys: [skhd](https://github.com/koekeishiya/skhd)
+-   Terminal: [Alacritty](https://github.com/jwilm/alacritty) using zsh w/ [starship prompt](https://starship.rs/)
+-   Window management/movement: [rectangle](https://rectangleapp.com), [alttab](https://alt-tab-macos.netlify.app)
 -   Vim: [neovim](https://neovim.io/) with [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins
--   Tools: [tmux](https://github.com/tmux/tmux), [z](https://github.com/rupa/z), [fzf](https://github.com/junegunn/fzf)
+-   Tools: [eza](https://eza.rocks), [bat](https://github.com/sharkdp/bat), [fzf](https://github.com/junegunn/fzf), [wd](https://github.com/mfaerevaag/wd)
+-   Many more cool apps (see Brewfile)
 
 ## Installation
 
@@ -17,9 +16,9 @@ Dotfiles for my M1 Macbook Pro 18,1 running macOS Ventura 13.0.
 
 To install:
 
-`curl -L https://git.io/JeA7g | sh`
-
-This expands to [run.sh](https://github.com/gretzky/dotfiles/blob/master/run.sh) which will fetch this repo and run the install script.
+- clone this repo
+- run `install.sh`
+    - this install script will create some directories, download lots of software (via brew), set custom mac preferences, and symlink all dotfiles (via stow). Please refer to source code to see exactly what it does.
 
 ## File overview
 
@@ -29,12 +28,8 @@ This expands to [run.sh](https://github.com/gretzky/dotfiles/blob/master/run.sh)
     -   [colorls](./colorls)
     -   [fzf](./fzf)
     -   [neovim](./nvim)
-    -   [skhd](./skhd)
     -   [starship](./starship)
-    -   [tmux](./tmux)
     -   [VSCode](./vscode)
-    -   [yabai](./yabai)
-    -   [z](./z)
 -   Shell environment configs:
     -   [Antigen](https://github.com/zsh-users/antigen) for zsh plugin management
     -   [`.zshrc`](./zsh/.zshrc)
@@ -48,7 +43,7 @@ This expands to [run.sh](https://github.com/gretzky/dotfiles/blob/master/run.sh)
 The install script will also setup Python and Node versions/environments:
 
 -   [pyenv](https://github.com/pyenv/pyenv) sets the global Python version to 3.10
--   [n](https://github.com/tj/n) sets the global Node version to LTS
+-   [nvm](https://github.com/tj/n) sets the global Node version to LTS
 
 ### Customization
 
