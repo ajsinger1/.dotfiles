@@ -47,6 +47,7 @@ set matchpairs+=<:>
 set nobackup
 set noswapfile
 set nu
+set rnu
 set scrolloff=5
 set shortmess+=cW
 set showmatch
