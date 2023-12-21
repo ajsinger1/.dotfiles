@@ -2,8 +2,7 @@
 
 Dotfiles for my Macbook Pro.
 
-<img width="912" alt="Screenshot 2023-12-21 at 5 47 51 AM" src="https://github.com/ajsinger1/dotfiles-new/assets/26032169/d811406f-f97c-4f64-acc4-7982b6854cd7">
-
+<img width="912" alt="Screenshot 2023-12-21 at 7 00 41 AM" src="https://github.com/ajsinger1/.dotfiles/assets/26032169/5e2e429f-505d-49ac-a593-2e9d7526a83a">
 
 -   Terminal: [Alacritty](https://github.com/jwilm/alacritty) using zsh w/ [Starship prompt](https://starship.rs/)
     - prompt git key: '!' (modified), '+' (staged), '?' (untracked)
