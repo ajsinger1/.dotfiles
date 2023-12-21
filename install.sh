@@ -59,6 +59,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 printf "🐗  Symlinking dotfiles using stow\n"
-stow alacritty colorls fzf git nvim starship vim  zsh
+stow alacritty fzf git nvim starship vim  zsh
 
 printf "✨  Done!\n"
