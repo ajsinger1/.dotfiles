@@ -76,7 +76,6 @@ cask "hyperkey", args: { appdir: "~/Applications" }
 cask "iterm2", args: { appdir: "~/Applications" }
 cask "postman", args: { appdir: "~/Applications" }
 cask "raycast", args: { appdir: "~/Applications" }
-cask "readdle-spark", args: { appdir: "~/Applications" }
 cask "rectangle", args: { appdir: "~/Applications" }
 cask "spotify", args: { appdir: "~/Applications", require_sha: false }
 cask "stats", args: { appdir: "~/Applications" }
