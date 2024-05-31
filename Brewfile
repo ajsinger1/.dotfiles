@@ -70,6 +70,7 @@ cask "font-hack", args: { appdir: "~/Applications" }
 cask "font-hack-nerd-font", args: { appdir: "~/Applications" }
 cask "font-inconsolata", args: { appdir: "~/Applications" }
 cask "font-meslo-lg-nerd-font", args: { appdir: "~/Applications" }
+cask "font-sauce-code-pro-nerd-font", args: { appdir: "~/Applications" }
 cask "gimp", args: { appdir: "~/Applications" }
 cask "handbrake", args: { appdir: "~/Applications" }
 cask "hyperkey", args: { appdir: "~/Applications" }
