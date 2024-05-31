@@ -55,7 +55,6 @@ brew "zsh"
 cask "alacritty", args: { appdir: "~/Applications" }
 cask "alt-tab", args: { appdir: "~/Applications" }
 cask "appcleaner", args: { appdir: "~/Applications" }
-cask "bitwarden", args: { appdir: "~/Applications" }
 cask "boop", args: { appdir: "~/Applications" }
 cask "chromedriver"
 cask "chatgpt", args: { appdir: "~/Applications" }
