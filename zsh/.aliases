@@ -14,10 +14,10 @@ alias ga="git add"
 alias gb="git branch"
 alias gf="git fetch"
 alias gg="git grep"
-alias gl="git log"
+alias gl="git ll"
 alias gm="git merge"
 alias gr="git remote"
-alias gs="git status"
+alias gs="git st"
 alias gw="git whatchanged"
 
 # merge
@@ -48,13 +48,15 @@ alias gchp="git cherry-pick"
 alias gcl="git clone"
 
 # commit
-alias gc="git commit -am"
-alias gcm="git commit --amend --no-edit"
+alias gc="git commit -m"
+alias gca="git commit --amend --no-edit"
+alias gcam="git commit --amend"
+alias gci="git infer"
 
 # diff
 alias gdt="git difftool"
 alias gd="git diff --color"
-alias gitfix="git diff --name-only | uniq | xargs code"
+alias gdl="git diff --color --name-only HEAD"
 
 # grep
 alias ggl="git grep --line-number"
@@ -62,6 +64,7 @@ alias ggg="git grep --break --heading --line-number"
 
 # log
 alias glg="git log --graph"
+alias gll="git log"
 alias glo="git log --oneline"
 
 # changelog
@@ -96,14 +99,14 @@ alias ld="eza -lD"
 alias lf="eza -lF --color=always | grep -v /"
 alias lh="eza -dl .* --group-directories-first"
 alias ll="eza -al --group-directories-first"
-alias ls="eza --icons --color=always"
+alias ls="eza --icons --color=always --group-directories-first"
 alias lt="eza -al --sort=modified"
 ###
 # coreutils
 ###
 
 # files output
-alias tail="gtail -F" # follows log rotations
+alias tail="gtail" # follows log rotations
 alias split="gsplit"
 alias csplit="gcsplit"
 
@@ -163,6 +166,10 @@ alias find="gfind"
 alias locate="glocate"
 alias updatedb="gupdatedb"
 alias xargs="gxargs"
+alias map="gxargs -n1"
+alias pid="pgrep -af"
+alias pidl="pgrep -afl"
+
 
 # binutils
 alias addr2line="gaddr2line"
@@ -236,7 +243,6 @@ alias pni="pnpm install"
 alias md="mkdir"
 alias t="touch"
 alias x="exit"
-alias c="clear"
 alias o="open ."
 alias vi="nvim"
 alias vim="nvim"
@@ -254,19 +260,12 @@ alias cat="bat"
 # commonly used dirs
 alias ..="cd .."
 alias dev="cd ~/dev"
-alias work="cd ~/dev/work"
-alias desk="cd ~/desktop"
-alias docs="cd ~/documents"
-alias dl="cd ~/downloads"
 alias home="cd ~"
 alias dots="cd ~/.dotfiles"
 alias dotfiles="cd ~/.dotfiles"
 
 # python
 alias pip="pip3"
-
-# make a pdf
-alias mergepdf="/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py"
 
 # spotlight
 alias spotoff="sudo mdutil -a -i off"
@@ -283,61 +282,21 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
-# kill all chrome tabs to free memory
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
 # lock scren when going afk
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # 🔇
 alias stfu="osascript -e 'set volume output muted true'"
 
-# remove cached xcode build data
-alias xcodepurge="rm -rf ~/Library/Developer/Xcode/DerivedData"
-
-# use gitignore.io cmd line tool
-gi() {
-	curl -L -s https://www.gitignore.io/api/$@
-}
-
-# create a remote repo
-create-repo() {
-	# Get user input
-	echo "Enter name for new repo"
-	read REPONAME
-	echo "Do you want to make it private? (y/n)"
-	read -r -n PRIVATE_ANSWER
-
-	if [[ "$PRIVATE_ANSWER" =~ ^[Yy]$ ]]; then
-		PRIVATE_TF=true
-	else
-		PRIVATE_TF=false
-	fi
-
-	# Curl some json to the github API oh damn we so fancy
-	curl -u gretzky https://api.github.com/user/repos -d "{\"name\": \"$REPONAME\", \"private\": $PRIVATE_TF}" >/dev/null
-
-	# first commit
-	git init 1>/dev/null
-	gi macos,visualstudiocode >>.gitignore 1>/dev/null
-	print_success ".gitignore added"
-	git add . 1>/dev/null
-	git commit -m "initial commit" 1>/dev/null
-	print_success "initial commit"
-	git remote add origin https://github.com/gretzky/$REPONAME.git 1>/dev/null
-	git push -u origin master --force 1>/dev/null
-
-	sleep 0.5
-	print_success "\nRepo created"
-	print_in_cyan "You can view your new repo at https://github.com/gretzky/$REPONAME.git"
-}
+# vscode
+alias c="code ."
 
 # make new dir and cd into it
 mkcd() {
 	mkdir -p $1
 	cd $1
 }
-alias mk="mkcd"
+alias mcd="mkcd"
 
 # change dir
 up() {
@@ -360,27 +319,6 @@ up() {
 	fi
 	cd "${cdir}"
 }
-
-# animated gifs from any video
-# https://gist.github.com/SlexAxton/4989674
-gifify() {
-	if [[ -n "$1" ]]; then
-		if [[ $2 == '--good' ]]; then
-			ffmpeg -i "$1" -r 10 -vcodec png out-static-%05d.png
-			time convert -verbose +dither -layers Optimize -resize 900x900\> out-static*.png GIF:- | gifsicle --colors 128 --delay=5 --loop --optimize=3 --multifile - >"$1.gif"
-			rm out-static*.png
-		else
-			ffmpeg -i "$1" -s 600x400 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 >"$1.gif"
-		fi
-	else
-		echo "✋  proper usage: gifify <input_movie.mov>. You DO need to include extension."
-	fi
-}
-
-# defaulting tree
-# tree() {
-# 	tree -aC -I '.git|node_modules|build|dist' --dirsfirst "$@"
-# }
 
 # 🗑
 emptytrash() {

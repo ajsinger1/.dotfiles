@@ -45,7 +45,7 @@ printf "Configuring Python...\n"
 # setup pyenv / global python to 3.10.x
 pyenv install 3.10
 pyenv global 3.10
-
+pip install gitz
 
 printf "Configuring Node...\n"
 # setup nvm to latest LTS version

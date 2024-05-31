@@ -29,4 +29,9 @@ source <(/opt/homebrew/bin/starship init zsh --print-full-init)
 source $HOME/.dotfiles/zsh/.exports
 source $HOME/.dotfiles/zsh/.aliases
 
+# Google cloud sdk
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
+
+source $HOME/.dotfiles/zsh/.postrc

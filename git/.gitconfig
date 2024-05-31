@@ -4,12 +4,11 @@
   editor = $EDITOR
   excludesfile = ~/.gitignore
   ignorecase = false
-  abbrev = 12
+  abbrev = auto
+	pager = diff-so-fancy | less --tabs=4 -RF
 [alias]
-  l  = log --graph --oneline --decorate
-  ld = log --graph --pretty=format:'%C(yellow)%h%C(bold white red)%d%Creset %s %C(bold green)%cr %Creset%C(white)%an' --abbrev-commit --date=relative
-  ll = log --stat --decorate --source -p
-  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+  ll = log --graph --decorate --date=format-local:'[%x %I:%M%p]' --all --format='%C(blue)%h %C(magenta)%ad %C(yellow)%al%C(auto)%d: %C(white)%s%n%b%C(reset)'
+  branches = for-each-ref --sort=-committerdate --format=\"%(color:magenta)%(authordate:relative) %(color:yellow)%(authorname) %(color:white)%(color:bold)%(refname:short)\"
 [color]
   ui = auto
 [diff]
@@ -19,7 +18,6 @@
   default = current
 [commit]
   verbose = true
-  # template = ~/.gitmessage
 [fetch]
   prune = true
 [rebase]
@@ -28,10 +26,14 @@
   branch = false
 [user]
 	name = Ari Singer
-	email = ajsinger1@gmail.com
+	email = me@arisinger.net
 [pull]
 	rebase = false
 [init]
     defaultBranch = main
 [help]
     autocorrect = 20
+[log]
+      abbrevCommit = true
+[interactive]
+	diffFilter = diff-so-fancy --patch
